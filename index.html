@@ -4,16 +4,15 @@
   <meta charset="UTF-8">
   <title>Sana şunları söylemek istiyorum</title>
 
-  <!-- Fontlar -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Dancing+Script:wght@500;600&display=swap" rel="stylesheet">
 
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, sans-serif;
       background: linear-gradient(135deg, #4e342e, #6d4c41, #a1887f, #8d6e63);
       color: #fffaf5;
       text-align: center;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
     }
 
     .container {
@@ -23,11 +22,9 @@
     }
 
     h2 {
-      color: #e6c9a8;
-      margin-bottom: 25px;
       font-family: 'Playfair Display', serif;
       font-style: italic;
-      letter-spacing: 1px;
+      color: #e6c9a8;
       opacity: 0;
       animation: fadeIn 2s forwards;
     }
@@ -35,8 +32,7 @@
     .intro-text {
       font-family: 'Dancing Script', cursive;
       font-size: 1.6rem;
-      color: #f5e4d2;
-      margin-bottom: 50px;
+      margin: 30px 0 50px;
       line-height: 1.9;
       opacity: 0;
       animation: fadeIn 2.5s forwards;
@@ -44,11 +40,11 @@
     }
 
     .card {
-      background: rgba(255, 255, 255, 0.10);
+      background: rgba(255,255,255,0.10);
       border-radius: 22px;
       padding: 35px;
       margin-top: 45px;
-      box-shadow: 0 0 25px rgba(80, 50, 30, 0.45);
+      box-shadow: 0 0 25px rgba(80,50,30,0.45);
       opacity: 0;
       animation: fadeIn 2.5s forwards;
       animation-delay: 1.2s;
@@ -62,36 +58,20 @@
       margin: 25px auto;
       display: block;
       box-shadow: 0 16px 38px rgba(0,0,0,0.45);
-      border: 4px solid rgba(255,255,255,0.35);
     }
 
-    .photo-note,
-    .poem,
-    .memory-text,
-    .final-note {
+    .text {
       font-family: 'Playfair Display', serif;
       font-style: italic;
-      color: #f2e3d4;
       line-height: 2;
-      opacity: 0;
-      animation: fadeIn 3s forwards;
-      animation-delay: 1.8s;
-    }
-
-    .poem {
-      margin-top: 30px;
-      font-size: 1.2rem;
+      font-size: 1.15rem;
     }
 
     .date {
-      margin-top: 26px;
-      font-size: 1.35rem;
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
+      margin-top: 20px;
+      font-size: 1.3rem;
       color: #ecd6bc;
-      opacity: 0;
-      animation: fadeIn 3s forwards;
-      animation-delay: 2.1s;
+      font-style: italic;
     }
 
     .tap-note {
@@ -99,11 +79,8 @@
       bottom: 25px;
       left: 50%;
       transform: translateX(-50%);
-      font-family: 'Playfair Display', serif;
       font-style: italic;
-      font-size: 0.95rem;
-      color: #f3e7da;
-      opacity: 0.85;
+      opacity: 0.8;
       animation: pulse 2s infinite;
     }
 
@@ -120,7 +97,7 @@
 </head>
 <body>
 
-  <!-- ARKA PLAN MÜZİĞİ -->
+  <!-- MÜZİK -->
   <audio id="bg-music" loop>
     <source src="golden-brown.mp3" type="audio/mpeg">
   </audio>
@@ -132,49 +109,72 @@
     <h2>Sana şunu söylemek isterim ki</h2>
 
     <div class="intro-text">
-      Bu siteyi yaparken düşündüğüm sadece ekrana bakıp gülümserken  
-      ne kadar tatlı olduğundu
+      Bu siteyi yaparken düşündüğüm sadece  
+      ekrana bakıp gülümserken ne kadar tatlı olduğundu
     </div>
 
+    <!-- 1. PART -->
     <div class="card">
       <img src="https://i.imgur.com/WRu01ht.jpeg" class="photo-square">
-
-      <div class="photo-note">
-        Her ne kadar sen kendini beğenmesen de, senin kusur saydıkların olmasa  
-        bu hayatta nasıl bir halde olacağımı anlatamazdım.
+      <div class="text">
+        Her ne kadar sen kendini beğenmesen de,  
+        senin kusur saydıkların olmasa bu hayatta  
+        nasıl bir halde olacağımı anlatamazdım.
+        <br><br>
+        Temayı kahverengi yapma sebebim ise  
+        ne zaman gözlerine baksam içinde kaybolmam.  
+        Daha, daha, daha çok bakmak istedim.  
+        Benim renksiz dünyamı o gözlerinin güzelliği renklendirdi.
       </div>
+    </div>
 
-      <div class="poem">
+    <!-- 2. PART -->
+    <div class="card">
+      <div class="text">
         Bir şiir istersin içinde benzetmeler olan.<br>
         Kusura bakma sevgilim,<br>
         Dünyada güzelliğini anlatabilecek bir kelime henüz yok.
       </div>
     </div>
 
+    <!-- 3. PART -->
     <div class="card">
       <img src="https://i.imgur.com/t1m4TX1.png" class="photo-square">
       <div class="date">29.10.2025</div>
-
-      <div class="memory-text">
-        Tanıdığım herkes doğum günümü 31 Mayıs olarak bilse de,  
-        aslında ben bu tarihte doğdum.
+      <div class="text">
+        Tanıdığım herkes doğum günümü 31 Mayıs olarak bilse de,<br>
+        aslında ben bu tarihte doğdum.<br>
+        Seninle gerçekten mutlu olduğumu hissettim.<br>
+        Kollarında kokunu içime çekerken yaşamayı öğrendim.<br>
+        Ellerim ellerindeyken ilk kez hayat bana  
+        acımasız veya soğuk değil,  
+        insanın içini ısıtan bir güneş gibi geldi.
       </div>
     </div>
 
+    <!-- 4. PART -->
     <div class="card">
-      <div class="final-note">
-        Sözüm o ki sevgilim,  
-        seni her şeyden çok seviyorum.  
+      <div class="text">
+        Zaman zaman gerek aramızdaki mesafeler,<br>
+        zaman zaman başka insanlarla olan ilişkilerimiz,<br>
+        zaman zaman da kendi hatalarımızdan dolayı kavga etsek de<br>
+        bu hayatta en çok önemsediğim insan her zaman sen olacaksın.
+        <br><br>
+        Ne zaman aynaya baksan,<br>
+        seni sadece sen olduğun için her şeyden çok sevecek olan beni<br>
+        lütfen hayatından çıkarma.<br>
+        Seninle daha nice aylarımız, yıllarımız olsun.<br>
+        Kurduğum tüm hayallerin baş tacısın.<br>
+        Sensiz bir hayat düşünmek bile istemiyorum.
+      </div>
+    </div>
+
+    <!-- 5. PART -->
+    <div class="card">
+      <div class="text">
+        Sözüm o ki sevgilim,<br>
+        seni her şeyden çok seviyorum.<br>
         Lütfen bunu aklından çıkarma.
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="poem">
-        Bin yıl ömrüm olsa<br>
-        Bin yıl seni severdim<br>
-        Bin yıl benim olsaydın<br>
-        Bin yıl daha isterdim
       </div>
     </div>
 
@@ -192,3 +192,4 @@
 
 </body>
 </html>
+
