@@ -11,13 +11,7 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, sans-serif;
-      background: linear-gradient(
-        135deg,
-        #4e342e,
-        #6d4c41,
-        #a1887f,
-        #8d6e63
-      );
+      background: linear-gradient(135deg, #4e342e, #6d4c41, #a1887f, #8d6e63);
       color: #fffaf5;
       text-align: center;
     }
@@ -25,26 +19,35 @@
     .container {
       max-width: 850px;
       margin: auto;
-      padding: 70px 20px;
+      padding: 90px 20px 70px;
     }
 
-    h2 {
+    h2, h3 {
       color: #e6c9a8;
-      margin-bottom: 25px;
       font-family: 'Playfair Display', serif;
       font-style: italic;
-      letter-spacing: 1px;
     }
 
-    h3 {
-      color: #f1d8bd;
-      margin-bottom: 20px;
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      letter-spacing: 1px;
+    /* YAVAŞ BELİRME */
+    .fade {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1.5s ease forwards;
     }
 
-    /* ÖZEL CÜMLE */
+    .delay-1 { animation-delay: 0.6s; }
+    .delay-2 { animation-delay: 1.4s; }
+    .delay-3 { animation-delay: 2.2s; }
+    .delay-4 { animation-delay: 3s; }
+    .delay-5 { animation-delay: 3.8s; }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     .intro-text {
       font-family: 'Dancing Script', cursive;
       font-size: 1.6rem;
@@ -59,21 +62,8 @@
       padding: 35px;
       margin-top: 45px;
       box-shadow: 0 0 25px rgba(80, 50, 30, 0.45);
-      animation: fadeUp 1.2s ease forwards;
     }
 
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* FOTOĞRAFLAR */
     .photo-square {
       width: 340px;
       height: 340px;
@@ -83,76 +73,48 @@
       display: block;
       box-shadow: 0 16px 38px rgba(0,0,0,0.45);
       border: 4px solid rgba(255,255,255,0.35);
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
     }
 
-    .photo-square:hover {
-      transform: scale(1.06);
-      box-shadow: 0 26px 55px rgba(0,0,0,0.65);
-    }
-
-    .photo-note,
-    .poem,
-    .memory-text,
-    .final-note,
-    .extra-poem {
+    .poem, .memory-text, .final-note, .extra-poem {
       font-family: 'Playfair Display', serif;
       font-style: italic;
-      color: #f2e3d4;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.25);
-    }
-
-    .photo-note {
-      margin-top: 20px;
-      font-size: 1.1rem;
-      line-height: 1.85;
-    }
-
-    .poem {
-      margin-top: 30px;
-      font-size: 1.2rem;
-      line-height: 2;
       color: #f8eadc;
+      line-height: 2;
     }
 
     .date {
       margin-top: 26px;
-      font-size: 1.35rem;
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
+      font-size: 1.3rem;
       color: #ecd6bc;
-      letter-spacing: 1px;
     }
 
-    .memory-text {
-      margin-top: 22px;
-      font-size: 1.08rem;
-      line-height: 1.95;
-      max-width: 650px;
-      margin-left: auto;
-      margin-right: auto;
+    /* MÜZİK YAZISI */
+    .tap-to-play {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: #fff3e0;
+      z-index: 9999;
+      cursor: pointer;
+      animation: fadeIn 1.5s ease;
     }
 
-    .final-note {
-      font-size: 1.15rem;
-      line-height: 2;
-      max-width: 720px;
-      margin: auto;
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
-    .extra-poem {
-      font-size: 1.25rem;
-      line-height: 2.2;
-      color: #f9e7d2;
-    }
-
-    /* MOBİL */
     @media (max-width: 600px) {
       .photo-square {
         width: 90%;
         height: auto;
       }
-
       .intro-text {
         font-size: 1.3rem;
       }
@@ -161,84 +123,74 @@
 </head>
 <body>
 
-  <div class="container">
+<!-- MÜZİĞİ BAŞLAT -->
+<div class="tap-to-play" id="tapScreen">
+  🎶 Müziği başlatmak için ekrana dokun
+</div>
 
-    <h2>Sana şunu söylemek isterim ki</h2>
+<div class="container">
 
-    <div class="intro-text">
-      Bu siteyi yaparken düşündüğüm sadece ekrana bakıp gülümserken  
-      ne kadar tatlı olduğundu
-    </div>
+  <h2 class="fade delay-1">Sana şunu söylemek isterim ki</h2>
 
-    <!-- KART 1 -->
-    <div class="card">
-      <img src="https://i.imgur.com/WRu01ht.jpeg" alt="Biz" class="photo-square">
-
-      <div class="photo-note">
-        Her ne kadar sen kendini beğenmesen de, senin kusur saydıkların olmasa  
-        bu hayatta nasıl bir halde olacağımı anlatamazdım.
-      </div>
-
-      <div class="photo-note">
-        Temayı kahverengi yapma sebebim ise ne zaman gözlerine baksam içinde kaybolmam.  
-        Daha, daha, daha çok bakmak istedim. Benim renksiz dünyamı  
-        o gözlerinin güzelliği renklendirdi.
-      </div>
-
-      <div class="poem">
-        Bir şiir istersin içinde benzetmeler olan.<br>
-        Kusura bakma sevgilim,<br>
-        Dünyada güzelliğini anlatabilecek bir kelime henüz yok.
-      </div>
-    </div>
-
-    <!-- KART 2 -->
-    <div class="card">
-      <img src="https://i.imgur.com/t1m4TX1.png" alt="Bir an" class="photo-square">
-
-      <div class="date">29.10.2025</div>
-
-      <div class="memory-text">
-        Tanıdığım herkes doğum günümü 31 Mayıs olarak bilse de, aslında ben bu tarihte doğdum.  
-        Seninle gerçekten mutlu olduğumu hissettim.  
-        Kollarında kokunu içime çekerken yaşamayı öğrendim.  
-        Ellerim ellerindeyken ilk kez hayat bana acımasız veya soğuk değil,  
-        insanın içini ısıtan bir güneş gibi geldi.
-      </div>
-    </div>
-
-    <!-- SON -->
-    <div class="card">
-      <div class="final-note">
-        Zaman zaman gerek aramızdaki mesafeler, zaman zaman başka insanlarla olan ilişkilerimiz,  
-        zaman zaman da kendi hatalarımızdan dolayı kavga etsek de bu hayatta en çok önemsediğim insan  
-        her zaman sen olacaksın.
-        <br><br>
-        Ne zaman aynaya baksan, seni sadece sen olduğun için her şeyden çok sevecek olan  
-        beni lütfen hayatından çıkarma.  
-        Seninle daha nice aylarımız, yıllarımız olsun.  
-        Kurduğum tüm hayallerin baş tacısın.  
-        Sensiz bir hayat düşünmek bile istemiyorum.
-        <br><br>
-        Sözüm o ki sevgilim,  
-        seni her şeyden çok seviyorum.  
-        Lütfen bunu aklından çıkarma.
-      </div>
-    </div>
-
-    <!-- YENİ ŞİİR -->
-    <div class="card">
-      <h3>Sana dair bir dileğim</h3>
-
-      <div class="extra-poem">
-        Bin yıl ömrüm olsa<br>
-        Bin yıl seni severdim<br>
-        Bin yıl benim olsaydın<br>
-        Bin yıl daha isterdim
-      </div>
-    </div>
-
+  <div class="intro-text fade delay-2">
+    Bu siteyi yaparken düşündüğüm tek şey,<br>
+    ekrana bakarken yüzünde beliren o küçük gülümsemeydi.
   </div>
+
+  <div class="card fade delay-3">
+    <img src="https://i.imgur.com/WRu01ht.jpeg" class="photo-square">
+    <div class="poem">
+      Sen kendini beğenmesen de,<br>
+      benim dünyamda hep en güzel yerde olacaksın.
+    </div>
+  </div>
+
+  <div class="card fade delay-4">
+    <img src="https://i.imgur.com/t1m4TX1.png" class="photo-square">
+    <div class="date">29.10.2025</div>
+    <div class="memory-text">
+      Seninle gerçekten mutlu olduğumu hissettim.<br>
+      Hayat ilk kez içimi ısıtan bir güneş gibiydi.
+    </div>
+  </div>
+
+  <div class="card fade delay-5">
+    <div class="final-note">
+      Seni her şeyden çok seviyorum.<br>
+      Lütfen bunu aklından çıkarma.
+    </div>
+  </div>
+
+  <div class="card fade delay-5">
+    <h3>Sana dair bir dileğim</h3>
+    <div class="extra-poem">
+      Bin yıl ömrüm olsa<br>
+      Bin yıl seni severdim<br>
+      Bin yıl benim olsaydın<br>
+      Bin yıl daha isterdim
+    </div>
+  </div>
+
+</div>
+
+<!-- MÜZİK -->
+<div style="display:none;">
+  <iframe
+    id="bg-music"
+    src="https://www.youtube.com/embed/z-GUjA67mdc?autoplay=1&loop=1&playlist=z-GUjA67mdc&controls=0&mute=1"
+    allow="autoplay">
+  </iframe>
+</div>
+
+<script>
+  const tapScreen = document.getElementById("tapScreen");
+  const music = document.getElementById("bg-music");
+
+  tapScreen.addEventListener("click", () => {
+    music.src = music.src.replace("mute=1", "mute=0");
+    tapScreen.style.display = "none";
+  });
+</script>
 
 </body>
 </html>
